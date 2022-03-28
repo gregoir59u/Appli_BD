@@ -3,13 +3,16 @@
 echo '<h2>Projets AppliBD</h2>';
 echo '<br>';
 
+echo '<h3>Les pages sont longues (genre bcp) car bcp de requêtes a afficher</h3>';
+
+echo '<br>';
 echo '<form name="TP1" action="TP1.php" method="post">
 <input type="submit" value="TP1">
 </form>';
 
 echo '<form name="TP2" action="TP2.php" method="post">
 <input type="submit" value="TP2">
-</form>' . '<p>(long a ouvrir car bcp de requete)</p>';
+</form>';
 
 echo '<form name="TP3" action="TP3.php" method="post">
 <input type="submit" value="TP3">

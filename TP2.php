@@ -139,9 +139,3 @@ foreach ($gaame_ratings as $gaame_rating) {
         }
     }
 }*/
-
-/*2EME OPTION
-$numberq7=0;
-echo '<h2>TP2 : Q7) les jeux dont le nom débute par Mario, publiés par une compagnie dont le nom contient "Inc." et dont le rating initial contient "3+"</h2>';
-Game_rating::where('name','like','%3+%')
-    ->whereHas('');*/

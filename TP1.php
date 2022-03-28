@@ -51,13 +51,11 @@ foreach ($games as $game) {
 }
 echo "<br><h3>Nombre de lignes : $numberq4</h3>";
 
-/*Question 5)
-$numberq5 = 0;
-$games = Game::select('name', 'deck')->paginate(15)->get();
-echo '<h2>Q5) Lister les jeux, afficher leur nom et deck, en paginant (taille des pages : 500)</h2>';
-$games = Game::simplePaginate(15);
-echo $games;
-foreach ($games as $game) {
+//Question 5)
+/*echo '<h2>Q5) Lister les jeux, afficher leur nom et deck, en paginant (taille des pages : 500)</h2>';
+$game=App\Models\Game::paginate(500);
+echo $game;
+foreach ($game as $game) {
     echo '<br>JEU : ' . $game->name . "<br>DECK : " . $game->deck . "<br>";
     $numberq5 += 1;
 }

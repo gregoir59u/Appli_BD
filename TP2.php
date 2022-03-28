@@ -99,3 +99,18 @@ foreach ($games3 as $game3) {
 }
 echo "<br><h3>Nombre de lignes : $numberq5</h3>";
 */
+
+/*Question 6)*/
+$numberq6 = 0;
+echo '<h2>TP2 : Q6) Les jeux dont le nom débute par Mario et dont le rating initial contient "3+"</h2>';
+$gaame_ratings = Game_rating::select('id')->where('name','like','%3+%')->get();
+foreach ($gaame_ratings as $gaame_rating) {
+    $gaame2ratings = Game2rating::select('game_id')->where('rating_id', '=', $gaame_rating->id)->get();
+    foreach ($gaame2ratings as $gaame2rating) {
+        $gaames = Game::select('name')->where( 'id', '=', $gaame2rating->game_id)->where('name', 'like', 'Mario%')->get();
+        foreach ($gaames as $gaaame) {
+            echo '<br>Nom du jeu : ' . $gaaame->name;
+            $numberq6 += 1;
+        }
+    }
+}

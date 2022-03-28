@@ -17,7 +17,7 @@ use TP1\bd\Eloquent;
 Eloquent::start('src/conf/conf.ini');
 session_start();
 
-/*Question 1)
+/*Question 1)*/
 echo '<h2>TP2 : Q1) Afficher (name , deck) les personnages du jeu 12342</h2>';
 $games = Game2character::select('character_id')->where( 'game_id', '=', '12342')->get();
 foreach ($games as $game) {
@@ -25,9 +25,9 @@ foreach ($games as $game) {
     foreach ($characters as $character) {
         echo '<br>Name : ' . $character->name . '<br>Deck : ' . $character->deck . '<br>';
     }
-}*/
+}
 
-/*Question 2)
+/*Question 2)*/
 $numberq2 = 0;
 echo '<h2>TP2 : Q2)Les personnages des jeux dont le nom (du jeu) débute par Mario</h2>';
 $games = Game::select('id')->where( 'name', 'like', 'Mario%')->get();
@@ -41,7 +41,7 @@ foreach ($games as $game) {
         }
     }
 }
-echo "<br><h3>Nombre de lignes : $numberq2</h3>";*/
+echo "<br><h3>Nombre de lignes : $numberq2</h3>";
 
 /*On aurait pu utiliser les sous-requetes directement au lieu des 3 foreach
  * SELECT id,name FROM `character` WHERE id IN
@@ -49,7 +49,7 @@ echo "<br><h3>Nombre de lignes : $numberq2</h3>";*/
  * (SELECT id FROM game WHERE name LIKE 'Mario%'));
  */
 
-/*Question 3)
+/*Question 3)*/
 $numberq3 = 0;
 echo '<h2>TP2 : Q3) Les jeux développés par une compagnie dont le nom contient Sony</h2>';
 $companies = Company::select('id')->where( 'name', 'like', '%sony%')->get();
@@ -63,7 +63,7 @@ foreach ($companies as $company) {
         }
     }
 }
-echo "<br><h3>Nombre de lignes : $numberq3</h3>";*/
+echo "<br><h3>Nombre de lignes : $numberq3</h3>";
 
 /*On aurait pu utiliser les sous-requetes directement au lieu des 3 foreach
  * SElECT name FROM game WHERE id IN
@@ -71,7 +71,7 @@ echo "<br><h3>Nombre de lignes : $numberq3</h3>";*/
  * (SELECT id FROM company WHERE name LIKE '%sony%'));
  */
 
-/*Question 4)
+/*Question 4)*/
 $numberq4 = 0;
 echo '<h2>TP2 : Q4) Le rating initial (indiquer le rating board) des jeux dont le nom contient Mario</h2>';
 $games2 = Game::select('id', 'name')->where( 'name', 'like', '%Mario%')->get();
@@ -88,7 +88,7 @@ foreach ($games2 as $game2) {
         }
     }
 }
-echo "<br><h3>Nombre de lignes : $numberq4</h3>";*/
+echo "<br><h3>Nombre de lignes : $numberq4</h3>";
 
 /*Question 5)
 $numberq5 = 0;
@@ -98,8 +98,7 @@ foreach ($games3 as $game3) {
     echo '<br>' . $game3->name;
     $numberq5 += 1;
 }
-echo "<br><h3>Nombre de lignes : $numberq5</h3>";
-*/
+echo "<br><h3>Nombre de lignes : $numberq5</h3>";*/
 
 /*Question 6)*/
 $numberq6 = 0;
@@ -117,6 +116,7 @@ foreach ($gaame_ratings as $gaame_rating) {
 }
 
 /*Question 7)*/
+/*1ERE OPTION
 $numberq7 = 0;
 echo '<h2>TP2 : Q7) les jeux dont le nom débute par Mario, publiés par une compagnie dont le nom contient "Inc." et dont le rating initial contient "3+"</h2>';
 $gaame_ratings = Game_rating::select('id')->where('name','like','%3+%')->get();
@@ -138,4 +138,10 @@ foreach ($gaame_ratings as $gaame_rating) {
             }
         }
     }
-}
+}*/
+
+/*2EME OPTION
+$numberq7=0;
+echo '<h2>TP2 : Q7) les jeux dont le nom débute par Mario, publiés par une compagnie dont le nom contient "Inc." et dont le rating initial contient "3+"</h2>';
+Game_rating::where('name','like','%3+%')
+    ->whereHas('');*/

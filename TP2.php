@@ -10,6 +10,8 @@ require 'src/models/Game_developers.php';
 require 'src/models/Game_rating.php';
 require 'src/models/Game2rating.php';
 require 'src/models/Rating_board.php';
+require 'src/models/Genre.php';
+require 'src/models/Game2genre.php';
 
 use TP1\bd\Eloquent;
 
@@ -127,6 +129,7 @@ foreach((\games\model\Game::where('name', 'like', 'Mario%')
     echo '<br> ID : '. $f3->id . ' || Nom : ' . $f3->name;
     $numberq7 += 1;
 }
+echo "<br><h3>Nombre de lignes : $numberq7</h3>";
 
 /*Question 8)*/
 $numberq8 = 0;
@@ -135,6 +138,9 @@ foreach((\games\model\Game::where('name', 'like', 'Mario%')
     ->whereHas('original_game_ratings', function($q) {
         $q->where('name', 'like', '%3+%');
     })
+    ->whereHas('original_game_ratings', function($q) {
+        $q->where('name', 'like', '%CERO%');
+    })
     ->whereHas('publishers', function($q2) {
         $q2->where('name', 'like', '%Inc.%');
     })
@@ -142,5 +148,14 @@ foreach((\games\model\Game::where('name', 'like', 'Mario%')
     echo '<br> ID : '. $f4->id . ' || Nom : ' . $f4->name;
     $numberq8 += 1;
 }
+echo "<br><h3>Nombre de lignes : $numberq8</h3>";
 
-
+/*Question 9)
+Fonctionne mais en commentaire pour éviter d'insérer à chaque rechargement de la page
+$numberq9 = 0;
+echo '<h2>TP2 : Q9) Ajouter un nouveau genre de jeu, et lassocier aux jeux 12, 56, 12, 345</h2>';
+\games\model\Genre::insert(['id'=> 51, 'name' => 'Maximegenre', 'deck' => 'Maximedeck']);
+\games\model\Game2genre::insert(['game_id' => 12, 'genre_id' => 51]);
+\games\model\Game2genre::insert(['game_id' => 56, 'genre_id' => 51]);
+\games\model\Game2genre::insert(['game_id' => 345, 'genre_id' => 51]);
+*/

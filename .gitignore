@@ -202,3 +202,4 @@ fabric.properties
 # Support for Project snippet scope
 
 # End of https://www.toptal.com/developers/gitignore/api/phpstorm,composer,phpstorm+all,visualstudiocode
+src/conf/conf.ini

@@ -13,7 +13,7 @@ session_start();
 
 /*Question 1)*/
 $numberq1 = 0;
-$games = Game::select('name')->where( 'name', 'like', '%Mario%')->get();
+$games = \games\model\Game::select('name')->where( 'name', 'like', '%Mario%')->get();
 echo '<h2>Q1) Lister les jeux dont le nom contient Mario</h2>';
 foreach ($games as $game) {
     echo '<br>' . $game->name;
@@ -23,7 +23,7 @@ echo "<br><h3>Nombre de lignes : $numberq1</h3>";
 
 /*Question 2)*/
 $numberq2 = 0;
-$companies = Company::select('name')->where( 'location_country', '=', 'Japan')->get();
+$companies = \games\model\Company::select('name')->where( 'location_country', '=', 'Japan')->get();
 echo '<h2>Q2) Lister les compagnies installées au Japon</h2>';
 foreach ($companies as $company) {
     echo '<br>' . $company->name;
@@ -33,7 +33,7 @@ echo "<br><h3>Nombre de lignes : $numberq2</h3>";
 
 /*Question 3)*/
 $numberq3 = 0;
-$platforms = Platform::select('name')->where( 'install_base', '>=', 10000000)->get();
+$platforms = \games\model\Platform::select('name')->where( 'install_base', '>=', 10000000)->get();
 echo '<h2>Q3) Lister les plateformes dont la base installée est >= 10 000 000</h2>';
 foreach ($platforms as $platform) {
     echo '<br>' . $platform->name;
@@ -43,7 +43,7 @@ echo "<br><h3>Nombre de lignes : $numberq3</h3>";
 
 /*Question 4)*/
 $numberq4 = 0;
-$games = Game::select('id', 'name')->limit(442)->offset(21172)->get();
+$games = \games\model\Game::select('id', 'name')->limit(442)->offset(21172)->get();
 echo '<h2>Q4) Lister 442 jeux à partir du 21173ème</h2>';
 foreach ($games as $game) {
     echo '<br>' . $game->id . " " . $game->name;

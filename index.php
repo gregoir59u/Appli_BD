@@ -3,7 +3,7 @@
 echo '<h2>Projets AppliBD</h2>';
 echo '<br>';
 
-echo "<h3>Les pages sont longues à s'ouvrir (genre bcp) car bcp de requêtes a afficher</h3>";
+echo "<h3>ATTENTION : Les pages sont longues à s'ouvrir car beaucoup de requêtes doivent être afficheées</h3>";
 
 echo '<br>';
 echo '<form name="TP1" action="TP1.php" method="post">

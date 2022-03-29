@@ -13,7 +13,7 @@ require 'src/models/Rating_board.php';
 require 'src/models/Genre.php';
 require 'src/models/Game2genre.php';
 
-use TP1\bd\Eloquent;
+use appli_bd\bd\Eloquent;
 
 Eloquent::start('src/conf/conf.ini');
 session_start();

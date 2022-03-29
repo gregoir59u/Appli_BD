@@ -11,12 +11,12 @@ require 'src/models/Game_rating.php';
 require 'src/models/Game2rating.php';
 require 'src/models/Rating_board.php';
 
-use TP1\bd\Eloquent;
+use appli_bd\bd\Eloquent;
 
 Eloquent::start('src/conf/conf.ini');
 session_start();
 
-echo "<h2>Vérifier les temps d'execution de certaine requetes</h2>";
+echo "<h2>Vérifier les temps d'éxecution de certaines requetes</h2>";
 
 $time_start1 = microtime(true);
 $games1 = \games\model\Game::select('name')->get();

@@ -6,7 +6,7 @@ require 'src/models/Game.php';
 require 'src/models/Company.php';
 require 'src/models/Platform.php';
 
-use TP1\bd\Eloquent;
+use appli_bd\bd\Eloquent;
 
 Eloquent::start('src/conf/conf.ini');
 session_start();

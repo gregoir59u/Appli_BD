@@ -1,6 +1,6 @@
 <?php
 
-namespace TP1\bd;
+namespace appli_bd\bd;
 
 use Illuminate\Database\Capsule\Manager as DB;
 

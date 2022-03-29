@@ -1,4 +1,5 @@
 <?php
+namespace games\model;
 class Character extends \Illuminate\Database\Eloquent\Model{
 
     protected $table = 'character';

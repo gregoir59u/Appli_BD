@@ -1,4 +1,5 @@
 <?php
+namespace games\model;
 class Game extends \Illuminate\Database\Eloquent\Model {
 
     protected $table = 'game';
@@ -15,7 +16,7 @@ class Game extends \Illuminate\Database\Eloquent\Model {
 
     public function original_game_ratings() {
 
-        return $this->belongsToMany('\games\model\GameRating', 'game2rating', 'game_id', 'rating_id');
+        return $this->belongsToMany('\games\model\Game_rating', 'game2rating', 'game_id', 'rating_id');
     }
 
     public function publishers() {
